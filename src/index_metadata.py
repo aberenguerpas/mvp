@@ -129,7 +129,7 @@ for source in data_sources:
     total_docs = 0
     try:
         print("Indexing...", end="")
-        for success, info in helpers.parallel_bulk(client, actions):
+        for success, info in helpers.parallel_bulk(client, actions, request_timeout=240):
             if not success:
                 print('A document failed:', info)
                 logger.error("Problem indexing document: ", info)

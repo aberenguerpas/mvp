@@ -1,5 +1,7 @@
 services:
   adquisition_layer:
     build: .
+    network_mode: "host"
+    restart: on-failure
     dns:
       - 8.8.8.8
