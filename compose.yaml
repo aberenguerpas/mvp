@@ -1,0 +1,5 @@
+services:
+  adquisition_layer:
+    build: .
+    dns:
+      - 8.8.8.8

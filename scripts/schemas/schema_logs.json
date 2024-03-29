@@ -1,0 +1,108 @@
+{
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "properties": {
+        "custom:identifier": {
+          "type": "text"
+        },
+        "dct:identifier": {
+          "type": "text"
+        },
+        "dct:title": {
+          "type": "text"
+        },
+        "dct:description": {
+          "type": "text"
+        },
+        "dcat:theme": {
+          "type": "keyword"
+        },
+        "dcat:keyword": {
+          "type": "keyword"
+        },
+        "dcat:distribution": {
+          "type": "nested",
+          "properties": {
+            "dct:title": {
+              "type": "text",
+              "index": false
+            },
+            "dcat:downloadURL": {
+              "type": "text",
+              "index": false
+            },
+            "dct:format": {
+              "type": "keyword"
+            },
+            "dct:rights": {
+              "type": "text"
+            }
+          }
+        },
+        "dct:modified": {
+          "type":   "date",
+          "format": "yyyy-MM-dd"
+        },
+        "dct:issued": {
+          "type":   "date",
+          "format": "yyyy-MM-dd"
+        },
+        "dct:language": {
+          "type":   "text"
+        },
+        "dcat:publisher": {
+          "type": "nested",
+          "properties": {
+            "dct:title": {
+              "type": "text",
+              "index": false
+            },
+            "dcat:homepage": {
+              "type": "text",
+              "index": false
+            }
+          }
+        },
+        "dct:temporal": {
+          "type": "object",
+          "properties": {
+            "startDate": {
+              "type":   "date",
+              "format": "yyyy-MM-dd"
+            },
+            "endDate": {
+              "type":   "date",
+              "format": "yyyy-MM-dd"
+            }
+          }
+        },
+        "dct:spatial": {
+          "type": "nested",
+          "properties": {
+            "country": {
+              "type": "text"
+            },
+            "city": {
+              "type": "text"
+            },
+            "bbox": {
+              "type": "geo_shape"
+            },
+            "centroid": {
+              "type": "geo_shape"
+            }
+          }
+        },
+        "custom:sample":{
+          "type": "text"
+        },
+        "custom:indexation_date":{
+          "type":   "date",
+          "format": "yyyy-MM-dd"
+        }
+      }
+    }
+  }
